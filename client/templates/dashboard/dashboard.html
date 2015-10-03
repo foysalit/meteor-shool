@@ -5,9 +5,7 @@
     </div>
 
     <ul class="list-group">
-      {{#each items}}
-        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
-      {{/each}}
+      {{> quickForm id="createItems" omitFields="test" type="insert" collection="Items"}}
     </ul>
 
   </div>

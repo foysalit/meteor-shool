@@ -1,5 +1,7 @@
 HomeController = AppController.extend({
-  data: {
+	data: function () {
+		return {
 
-  }
+		};
+	}
 });
