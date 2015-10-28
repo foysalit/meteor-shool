@@ -1,0 +1,43 @@
+<template name="membersList">
+	<div class="ui centered stackable grid section board-members">
+	{{#each roles}}
+		<div class="twelve column centered row">
+			<h1 class="ui header">
+				{{ label }}
+			</h1>
+			{{#each findByRole value}}
+				<div class="three wide column">
+					<div class="ui fluid card">
+						<div class="image">
+							<img src="{{ photo }}">
+						</div>
+						<div class="content">
+							<div class="header">{{ name }}</div>
+							<div class="meta">
+								<a>{{ profession }}</a>
+							</div>
+							<div class="description">
+								{{ bio }}
+							</div>
+						</div>
+						{{#if isRoute 'admin.members.list'}}
+							<div class="extra content">
+								<div class="ui two buttons">
+									<a 
+										class="ui basic green button"
+										href="{{ pathFor route='admin.members.edit' data=this }}">
+										Edit</a>
+									<a 
+										class="ui basic red button"
+										href="{{ pathFor route='admin.members.create' }}">
+									Remove</a>
+								</div>
+							</div>
+						{{/if}}
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	{{/each}}	
+	</div>
+</template>

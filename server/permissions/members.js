@@ -1,9 +1,9 @@
-Items.allow({
+App.Members.collection.allow({
 	'insert': function(userId, doc) {
-		return userId;
+		return true;
 	},
 	'update': function(userId, doc, fields, modifier) {
-		return userId;
+		return true;
 	},
 	'remove': function(userId, doc) {
 		return userId;

@@ -1,3 +1,5 @@
+@import "./variables.import.less";
+
 .static{
 	.hidden.menu {
 		display: none;
@@ -26,45 +28,21 @@
 			font-weight: normal;
 		}
 
-		.divider {
+		.down-scroller {
 			position: absolute;
 			bottom: 0px;
+			width: 100%;
+			text-align: center;
+
+			.icon {
+				cursor: pointer;
+			}
 		}
 	}
 
 	.logo {
 		img {
 			max-width: 80px;
-		}
-	}
-
-	.ui.vertical.stripe {
-		padding: 8em 0em;
-
-		h3 {
-			font-size: 2em;
-		}
-		.button + h3,
-		.ui.vertical.stripe p + h3 {
-			margin-top: 3em;
-		}
-		.floated.image {
-			clear: both;
-		}
-		p {
-			font-size: 1.33em;
-		}
-		.horizontal.divider {
-			margin: 3em 0em;
-		}
-	}
-
-	.quote.stripe.segment {
-		padding: 0em;
-		
-		.grid .column {
-			padding-top: 5em;
-			padding-bottom: 5em;
 		}
 	}
 
@@ -97,6 +75,18 @@
 		.masthead h2 {
 			margin-top: 0.5em;
 			font-size: 1.5em;
+		}
+	}
+}
+
+.section {
+	&.board-members {
+		padding-top: @static_section_width;
+		padding-bottom: @static_section_width;
+		
+		.ui.header {
+			font-size: 3rem;
+			margin: 15px 0 25px;
 		}
 	}
 }
