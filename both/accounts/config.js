@@ -26,8 +26,8 @@ if (Meteor.isServer) {
 			service: "facebook"
 		}, {
 			$set: {
-			    appId: settings.facebook.app_key,
-			    secret: settings.facebook.app_secret
+			    appId: settings.facebook.api_key,
+			    secret: settings.facebook.api_secret
 			}
 		});
 
@@ -35,8 +35,8 @@ if (Meteor.isServer) {
 			service: "twitter"
 		}, {
 			$set: {
-			    consumerKey: settings.twitter.app_key,
-			    secret: settings.twitter.app_secret
+			    consumerKey: settings.twitter.api_key,
+			    secret: settings.twitter.api_secret
 			}
 		});
 

@@ -1,6 +1,15 @@
 Router.configure({
-  controller: 'AppController',
   loadingTemplate: 'loading'
+});
+
+Router.configure({
+	controller: 'AppController',
+	except: ['home']
+});
+
+Router.configure({
+	controller: 'StaticController',
+	only: ['home']
 });
 
 // Router.plugin('loading', {loadingTemplate: 'loading'});

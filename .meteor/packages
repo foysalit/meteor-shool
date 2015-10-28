@@ -3,10 +3,9 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
-less
 accounts-password
-useraccounts:bootstrap
+useraccounts:semantic-ui
+useraccounts:iron-routing
 alanning:roles
 zimme:iron-router-active
 cmather:handlebars-server@0.2.0
@@ -25,3 +24,19 @@ aldeed:autoform
 accounts-facebook
 service-configuration
 accounts-twitter
+semantic:ui
+flemay:less-autoprefixer
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
