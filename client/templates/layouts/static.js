@@ -1,4 +1,4 @@
-Template.staticLayout.onRendered(function () {
+function initSidebar () {
 	$('.masthead').visibility({
 		once: false,
 		onBottomPassed: function() {
@@ -11,9 +11,17 @@ Template.staticLayout.onRendered(function () {
 
 	// create sidebar and attach to menu open
 	$('.ui.sidebar').sidebar('attach events', '.toc.item');
+}
 
+function addStaticClass () {
 	$('body').addClass('static');
+}
+
+Template.staticLayout.onRendered(function () {
+	initSidebar();
+	addStaticClass();
 });
+Template.appLayout.onRendered(initSidebar);
 
 Template.staticLayout.onDestroyed(function () {
 	$('body').removeClass('static');

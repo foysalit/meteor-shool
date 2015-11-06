@@ -1,0 +1,44 @@
+<template name="pageNav">
+	<div class="ui container page-nav">
+		<div class="ui grid secondary menu">
+			<a class="logo" href="/">
+				<img src="/images/logo.jpg" alt="official logo">
+			</a>
+
+			<a class="active item" href="/">Home</a>
+			<a class="item">Work</a>
+			<a class="item">Company</a>
+			<a class="item">Careers</a>
+
+	        {{#if currentUser}}
+	        <a 
+	        	href="{{ pathFor 'dashboard' }}" 
+	        	class="{{ isActiveRoute regex='dashboard' }} item">
+	        	Dashboard
+	        </a>
+	        <div class="right item">
+	        	{{> avatar user=currentUser shape="circle" size="menu"}}
+	        	<a href="#" class="ui button" data-action="logout">
+	        		Sign Out
+	        	</a>
+	        </div>
+	        {{else}}
+	        <div class="right item">
+	        	<a 
+	        		href="{{ pathFor 'atSignIn' }}" 
+	        		class="ui inverted button">
+	        		Log in
+	        	</a>
+	        	<a 
+	        		href="{{ pathFor 'atSignUp' }}" 
+	        		class="ui inverted button">
+	        		Sign Up
+	        	</a>
+	        </div>
+	        {{/if}}
+			<a class="toc right item">
+				<i class="sidebar icon"></i>
+			</a>
+		</div>
+	</div>
+</template>

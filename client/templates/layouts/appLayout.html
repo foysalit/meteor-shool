@@ -5,9 +5,13 @@
 
   {{> _header}}
 
-  <div class="ui container">
-    {{> yield}}
-  </div>
+  <div class="pusher">
+		<div class="ui container page-content">
+			{{> pageNav}}
+		
+    		{{> yield}}
+    	</div>
+	</div>
 
   {{> _footer}}
 </template>

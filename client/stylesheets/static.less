@@ -1,10 +1,25 @@
 @import "./variables.import.less";
 
-.static{
-	.hidden.menu {
-		display: none;
-	}
+.hidden.menu {
+	display: none;
+}
 
+.logo {
+	img {
+		max-width: 80px;
+	}
+}
+
+.footer.segment {
+	margin-top: 25px;
+	padding: 5em 0em;
+}
+
+.secondary.menu .toc.item {
+	display: none !important;
+}
+
+.static {
 	.masthead.segment {
 		min-height: 700px;
 		padding: 1em 0em;
@@ -40,25 +55,12 @@
 		}
 	}
 
-	.logo {
-		img {
-			max-width: 80px;
-		}
-	}
-
-	.footer.segment {
-		padding: 5em 0em;
-	}
-
-	.secondary.menu .toc.item {
-		display: none;
-	}
-
 	@media only screen and (max-width: 700px) {
 		.ui.fixed.menu {
 			display: none !important;
 		}
 		.secondary.menu .item,
+		.secondary.menu .right.item,
 		.secondary.menu .menu {
 			display: none;
 		}
