@@ -1,11 +1,5 @@
 App.Members.collection.allow({
-	'insert': function(userId, doc) {
-		return true;
-	},
-	'update': function(userId, doc, fields, modifier) {
-		return true;
-	},
-	'remove': function(userId, doc) {
-		return userId;
-	}
+	'insert': App.Users.isAdmin.bind(App.Users),
+	'update': App.Users.isAdmin.bind(App.Users),
+	'remove': App.Users.isAdmin.bind(App.Users)
 });

@@ -27,10 +27,8 @@
 										class="ui basic green button"
 										href="{{ pathFor route='admin.members.edit' data=this }}">
 										Edit</a>
-									<a 
-										class="ui basic red button"
-										href="{{ pathFor route='admin.members.create' }}">
-									Remove</a>
+									<button class="ui basic red button remove">
+									Remove</button>
 								</div>
 							</div>
 						{{/if}}
