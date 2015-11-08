@@ -1,0 +1,15 @@
+<template name="adminCoursesCreate">
+	<div class="ui grid">
+		<div class="eight wide column">
+			<h1>Create new Course:</h1>
+		</div>
+		<div class="eight wide right aligned column">
+			<a 
+				href="{{pathFor route='admin.classes.create'}}"
+				class="ui green button right">
+				Create Class
+			</a>
+		</div>
+	</div>
+	{{> quickForm type="insert" collection="App.Courses.collection" id="insertCourses"}}
+</template>

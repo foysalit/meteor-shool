@@ -28,7 +28,6 @@ Meteor.publishComposite("tabularUsersList", function (tableName, ids, fields) {
 					fields: fields
 				});
 
-			console.log(users.count());
 			return users;
 		},
 		children: []

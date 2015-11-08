@@ -1,0 +1,53 @@
+<template name="coursesList">
+	<div class="ui centered stackable grid section board-members">
+		{{#each courses}}
+			<div class="three wide column">
+				<div class="ui fluid card">
+					<div class="image">
+						<img src="{{ photo }}">
+					</div>
+					<div class="content">
+						<div class="header">{{ name }}</div>
+						<div class="meta">
+							<a>{{ section }}</a>
+						</div>
+						<div class="description">
+							<div class="ui image label">
+								<img src="{{ klass.photo }}">
+								{{ klass.name }}
+							</div>
+						</div>
+					</div>
+					{{#if isRoute 'admin.courses.list'}}
+						<div class="extra content">
+							<div class="ui two buttons">
+								<a 
+									class="ui basic green button"
+									href="{{ pathFor route='admin.courses.edit' data=this }}">
+									Edit</a>
+								<button class="ui basic red button remove">
+								Remove</button>
+							</div>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</template>
+
+<template name="adminCoursesList">
+	<div class="ui grid">
+		<div class="eight wide column">
+			<h1>Existing Courses: </h1>
+		</div>
+		<div class="eight wide right aligned column">
+			<a 
+				href="{{pathFor route='admin.courses.create'}}"
+				class="ui green button right">
+				Create Course
+			</a>
+		</div>
+	</div>
+	{{> coursesList}}
+</template>

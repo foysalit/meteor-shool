@@ -2,6 +2,12 @@ App = {
 	Members: {
 		collection: new Mongo.Collection('members')
 	},
+	Courses: {
+		collection: new Mongo.Collection('courses')
+	},
+	Klasses: {
+		collection: new Mongo.Collection('klasses')
+	},
 	Users: {
 		collection: Meteor.users
 	}
