@@ -4,12 +4,24 @@
 			<a class="{{ isActiveRoute regex='home' }} item">Home</a>
 
 			{{#if currentUser}}
-			<a href="{{ pathFor 'dashboard' }}" class="{{ isActiveRoute regex='dashboard' }} item">Dashboard</a>
+			
+			{{#if isAdmin}}
+				{{> adminMenu}}
+			{{/if}}
+			
+			{{#if isStudent}}
+				{{> studentMenu}}
+			{{/if}}
+			
+			{{#if isTeacher}}
+				{{> teacherMenu}}
+			{{/if}}
 			<div class="right item">
 				<a href="#" class="ui button" data-action="logout">
 					Sign Out
 				</a>
 			</div>
+			
 			{{else}}
 			<div class="right menu">
 				<div class="item">
@@ -27,11 +39,22 @@
 	<!-- Sidebar Menu -->
 	<div class="ui vertical inverted right sidebar menu">
 		<a class="{{ isActiveRoute regex='home' }} item">Home</a>
-
+			
+		
 		{{#if currentUser}}
-		<a href="{{ pathFor 'dashboard' }}" class="{{ isActiveRoute regex='dashboard' }} item">Dashboard</a>
+		{{#if isAdmin}}
+			{{> adminMenu}}
+		{{/if}}
+		
+		{{#if isStudent}}
+			{{> studentMenu}}
+		{{/if}}
+		
+		{{#if isTeacher}}
+			{{> teacherMenu}}
+		{{/if}}
 		<a href="#" class="item" data-action="logout">
-			Sign Out
+		Sign Out
 		</a>
 		{{else}}
 		<a href="{{ pathFor 'atSignIn' }}" class="item">Login</a>
