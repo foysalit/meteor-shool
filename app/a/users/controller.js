@@ -19,17 +19,5 @@ App.Users.Controller = AppController.extend({
 		}
 
 		return data;
-	},
-	// onBeforeAction: function () {
-	// 	var userId = Meteor.userId();
-
-	// 	console.log(userId, App.Users.isAdmin(userId));
-	// 	if (userId && App.Users.isAdmin(userId)) {
-	// 		this.next();
-	// 	} else {
-	// 		Meteor.setTimeout(function () {
-	// 			Router.go('unauthorized');
-	// 		}, 500);
-	// 	}
-	// }
+	}
 });

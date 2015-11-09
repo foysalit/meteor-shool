@@ -19,34 +19,52 @@
 						</div>
 					</div>
 					{{#if isAdmin}}
-						<div class="extra content">
-							<div class="ui two buttons">
-								<a 
-									class="ui basic green button"
-									href="{{ pathFor route='admin.courses.edit' data=this }}">
-									Edit</a>
-								<button class="ui basic red button remove">
-								Remove</button>
-							</div>
+					<div class="extra content">
+						<div class="ui two buttons">
+							<a 
+								class="ui basic green button"
+								href="{{ pathFor route='admin.courses.edit' data=this }}">
+								Edit</a>
+							<button class="ui basic red button remove">
+							Remove</button>
 						</div>
+					</div>
 					{{/if}}
 
 					{{#if isStudent}}
-							
+					<div class="extra content">
+						{{#if isRoute 'student.courses.choices'}}
+						{{#if isChosenCourse}}
+						<button class="fluid ui red button unselect">
+							<i class="icon remove circle"></i>
+							Disenroll
+						</button>
+						{{else}}
+						<button class="fluid ui basic green button select">
+							<i class="icon check circle"></i>
+							Enroll
+						</button>
+						{{/if}}
+						{{/if}}
 
-						<div class="extra content">
-							{{#if isChosenCourse}}
-								<button class="fluid ui red button unselect">
-									<i class="icon remove circle"></i>
-									Disenroll
-								</button>
-							{{else}}
-								<button class="fluid ui basic green button select">
-									<i class="icon check circle"></i>
-									Enroll
-								</button>
-							{{/if}}
-						</div>
+						{{#if isRoute 'student.courses.list'}}
+						<!-- <a 
+							href="{{pathFor 'student.courses.view' data=this}}" 
+							class="fluid ui inverted teal button">
+						</a> -->
+						<a 
+							href="{{pathFor 'student.courses.view' data=this}}" 
+							class="fluid ui animated teal button">
+							<div class="visible content">
+								<i class="icon browser"></i>
+								View Content
+							</div>
+							<div class="hidden content">
+								<i class="right arrow icon"></i>
+							</div>
+						</a>
+						{{/if}}
+					</div>
 					{{/if}}
 				</div>
 			</div>

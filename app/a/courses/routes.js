@@ -3,6 +3,11 @@ Router.route('/admin/courses', {
 	controller: App.Courses.Controller
 });
 
+Router.route('/student/courses', {
+	name: 'student.courses.list',
+	controller: App.Courses.Controller
+});
+
 Router.route('/admin/courses/create', {
 	name: 'admin.courses.create',
 	controller: App.Courses.Controller
@@ -10,6 +15,11 @@ Router.route('/admin/courses/create', {
 
 Router.route('/student/courses/choices', {
 	name: 'student.courses.choices',
+	controller: App.Courses.Controller
+});
+
+Router.route('/admin/courses/:_id', {
+	name: 'student.courses.view',
 	controller: App.Courses.Controller
 });
 

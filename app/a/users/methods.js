@@ -1,13 +1,13 @@
 App.Users.isAdmin = function (userId) {
-	return App.Users.hasRole(this.getUserId(userId), 'admin');
+	return this.hasRole(this.getUserId(userId), 'admin');
 };
 
 App.Users.isTeacher = function (userId) {
-	return App.Users.hasRole(this.getUserId(userId), 'teacher');
+	return this.hasRole(this.getUserId(userId), 'teacher');
 };
 
 App.Users.isStudent = function (userId) {
-	return App.Users.hasRole(this.getUserId(userId), 'student');
+	return this.hasRole(this.getUserId(userId), 'student');
 };
 
 App.Users.getUserId = function (userId) {
@@ -17,8 +17,14 @@ App.Users.getUserId = function (userId) {
 	if (Meteor.isClient)
 		return Meteor.userId();
 
-	if (Meteor.isServer)
-		return this.userId;
+	if (Meteor.isServer) {
+		if (this.userId)
+			return this.userId;
+		if (Meteor.user())
+			return Meteor.user()._id;
+	}
+
+	return null;
 };
 
 App.Users.addToRole = function (userId, name) {
@@ -41,8 +47,17 @@ App.Users.getRole = function (userId) {
 App.Users.enrollInCourse = function (courseId, userId) {
 	var user = App.Users.collection.findOne(this.getUserId(userId));
 
-	if (user.profile.courses.length > 3)
+	if (user.profile.courses.length > 3) {
+		if (Meteor.isClient) {
+			Bert.alert({
+				title: 'Max 4 Courses Are Allowed!', 
+				type: 'danger', 
+				style: 'fixed-top', 
+				icon: 'icon frown'
+			});
+		}
 		return false;
+	}
 
 	App.Users.collection.update({
 		_id: user._id

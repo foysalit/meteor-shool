@@ -1,9 +1,7 @@
 Router.route('/', {
-	name: 'home',
-	controller: 'StaticController'
+	name: 'home'
 });
 
 Router.route('/unauthorized', {
-	name: 'unauthorized',
-	controller: 'StaticController'
+	name: 'unauthorized'
 });
