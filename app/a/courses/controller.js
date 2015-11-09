@@ -4,7 +4,7 @@ App.Courses.Controller = AppController.extend({
 		var route = Router.current().route.getName(),
 			subs = [];
 
-		if (_.contains(['admin.courses.list'], route)) {
+		if (_.contains(['admin.courses.list', 'student.courses.choices'], route)) {
 			subs.push(this.subscribe('courses.list'));
 		}
 
@@ -23,7 +23,7 @@ App.Courses.Controller = AppController.extend({
 		var route = Router.current().route.getName(),
 			data = {};
 
-		if (_.contains(['admin.courses.list'], route)) {
+		if (_.contains(['admin.courses.list', 'student.courses.choices'], route)) {
 			data.courses = App.Courses.collection.find().fetch();
 		}
 

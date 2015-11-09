@@ -3,5 +3,5 @@ Router.route('/admin', {
 });
 
 Router.plugin('ensureSignedIn', {
-	only: ['admin']
+	except: ['home', 'atSignUp', 'atSignIn']
 });

@@ -8,6 +8,11 @@ Router.route('/admin/courses/create', {
 	controller: App.Courses.Controller
 });
 
+Router.route('/student/courses/choices', {
+	name: 'student.courses.choices',
+	controller: App.Courses.Controller
+});
+
 Router.route('/admin/courses/:_id/edit', {
 	name: 'admin.courses.edit',
 	controller: App.Courses.Controller

@@ -30,6 +30,10 @@ Meteor.publishComposite("tabularUsersList", function (tableName, ids, fields) {
 
 			return users;
 		},
-		children: []
+		children: [{
+			find: function (user) {
+				return App.Courses.collection.find({_id: {$in: user.profile.courses}})
+			}
+		}]
 	};
 });

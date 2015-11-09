@@ -1,7 +1,15 @@
-Template.registerHelper('currentUser', function() {
-	var user = Meteor.user();
-	return user || null;
+Template.registerHelper('isAdmin', function() {
+	return App.Users.isAdmin(Meteor.userId());
 });
+
+Template.registerHelper('isTeacher', function() {
+	return App.Users.isTeacher(Meteor.userId());
+});
+
+Template.registerHelper('isStudent', function() {
+	return App.Users.isStudent(Meteor.userId());
+});
+
 Template.registerHelper('hasSelected', function(user, query) {
 	var user = Meteor.user(),
 		method = 'hasSelected'+ query.charAt(0).toUpperCase() + query.slice(1);

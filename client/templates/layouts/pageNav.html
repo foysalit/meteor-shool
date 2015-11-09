@@ -4,18 +4,20 @@
 			<a class="logo" href="/">
 				<img src="/images/logo.jpg" alt="official logo">
 			</a>
-
-			<a class="active item" href="/">Home</a>
-			<a class="item">Work</a>
-			<a class="item">Company</a>
-			<a class="item">Careers</a>
+			
+			{{#if isAdmin}}
+				{{> adminMenu}}
+			{{/if}}
+			
+			{{#if isStudent}}
+				{{> studentMenu}}
+			{{/if}}
+			
+			{{#if isTeacher}}
+				{{> teacherMenu}}
+			{{/if}}
 
 	        {{#if currentUser}}
-	        <a 
-	        	href="{{ pathFor 'dashboard' }}" 
-	        	class="{{ isActiveRoute regex='dashboard' }} item">
-	        	Dashboard
-	        </a>
 	        <div class="right item">
 	        	{{> avatar user=currentUser shape="circle" size="menu" class="item"}}
 	        	<a href="#" class="ui button" data-action="logout">
@@ -41,4 +43,38 @@
 			</a>
 		</div>
 	</div>
+</template>
+
+<template name="adminMenu">
+	<a 
+		href="{{pathFor route='admin.courses.list'}}" 
+		class="item {{ isActiveRoute regex='admin.courses.list' }}">
+		Courses
+	</a>
+	<a 
+		href="{{pathFor route='admin.members.list'}}" 
+		class="item {{ isActiveRoute regex='admin.members.list' }}">
+		Members
+	</a>
+</template>
+
+<template name="studentMenu">
+	<a 
+		href="{{pathFor route='student.courses.list'}}" 
+		class="item {{ isActiveRoute regex='student.courses.list' }}">
+		Courses
+	</a>
+</template>
+
+<template name="teacherMenu">
+	<a 
+		href="{{pathFor route='admin.courses.list'}}" 
+		class="item {{ isActiveRoute regex='admin.courses.list' }}">
+		Courses
+	</a>
+	<a 
+		href="{{pathFor route='admin.members.list'}}" 
+		class="item {{ isActiveRoute regex='admin.members.list' }}">
+		Members
+	</a>
 </template>

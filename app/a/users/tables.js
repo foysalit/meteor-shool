@@ -10,10 +10,26 @@ App.Users.ListTable = new Tabular.Table({
 	dom: Tables.dom,
 	drawCallback: Tables.paginationStyles.bind(Tables),
 	initComplete: Tables.filtersStyle.bind(Tables),
-	extraFields: ['roles'],
+	extraFields: ['roles', 'profile'],
 	columns: [
 		{data: "username", title: "Username"},
 		{data: "role()", title: "Role"},
+		{
+			data: "chosenCourses()",
+			title: 'Courses',
+			render: function (data, type, user) {
+				var data = _.map(data, function (course) {
+					return [
+						'<a class="ui image label">',
+						'<img src="'+ course.photo +'">',
+						course.name,
+						'</a>'
+					].join("");
+				});
+
+				return data.length > 0 ? data.join('') : 'None';
+			}
+		},
 		{
 			data: "emails",
 			title: "Email Addresses",

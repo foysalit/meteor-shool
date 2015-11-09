@@ -37,3 +37,28 @@ App.Users.hasRole = function (userId, name) {
 App.Users.getRole = function (userId) {
 	return _.first(Roles.getGroupsForUser(this.getUserId(userId)));	
 };
+
+App.Users.enrollInCourse = function (courseId, userId) {
+	var user = App.Users.collection.findOne(this.getUserId(userId));
+
+	if (user.profile.courses.length > 3)
+		return false;
+
+	App.Users.collection.update({
+		_id: user._id
+	}, {
+		$addToSet: {
+			'profile.courses': courseId
+		}
+	});
+};
+
+App.Users.disenrollFromCourse = function (courseId, userId) {
+	App.Users.collection.update({
+		_id: this.getUserId(userId)
+	}, {
+		$pull: {
+			'profile.courses': courseId
+		}
+	});
+};

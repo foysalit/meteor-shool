@@ -1,7 +1,7 @@
 Meteor.publishComposite("klasses.list", function (section) {
 	return {
 		find: function() {
-			if (!App.Users.isAdmin(this.userId))
+			if (!this.userId)
 				return [];
 
 			var query = {};
@@ -25,7 +25,7 @@ Meteor.publishComposite("courses.list", function() {
 
 	return {
 		find: function() {
-			if (!App.Users.isAdmin(userId))
+			if (!userId)
 				return [];
 			
 			return App.Courses.collection.find();
@@ -39,7 +39,7 @@ Meteor.publishComposite("courses.single", function(id) {
 
 	return {
 		find: function() {
-			if (!App.Users.isAdmin(userId))
+			if (!userId)
 				return [];
 
 			return App.Courses.collection.find({_id: id});

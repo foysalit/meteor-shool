@@ -1,0 +1,15 @@
+<template name="adminCoursesList">
+	<div class="ui grid">
+		<div class="eight wide column">
+			<h1>Existing Courses: </h1>
+		</div>
+		<div class="eight wide right aligned column">
+			<a 
+				href="{{pathFor route='admin.courses.create'}}"
+				class="ui green button right">
+				Create Course
+			</a>
+		</div>
+	</div>
+	{{> coursesList}}
+</template>

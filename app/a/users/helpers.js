@@ -10,6 +10,12 @@ App.Users.collection.helpers({
 	},
 	role: function () {
 		return App.Users.getRole(this._id);
+	},
+	chosenCourses: function () {
+		return App.Courses.collection.find({_id: {$in: this.profile.courses}}).fetch();
+	},
+	totalChosenCourses: function () {
+		return this.profile.courses.length;
 	}
 });
 

@@ -31,9 +31,7 @@ if (Meteor.isServer) {
 		else
 			user.profile = {};
 
-		user.profile.interests = [];
-		user.profile.schools = [];
-		user.profile["class"] = '';
+		user.profile.courses = [];
 
 		Meteor.setTimeout(function () {
 			App.Users.addToRole(user._id, 'student');

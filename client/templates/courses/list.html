@@ -1,7 +1,7 @@
 <template name="coursesList">
 	<div class="ui centered stackable grid section board-members">
 		{{#each courses}}
-			<div class="three wide column">
+			<div class="four wide column">
 				<div class="ui fluid card">
 					<div class="image">
 						<img src="{{ photo }}">
@@ -18,7 +18,7 @@
 							</div>
 						</div>
 					</div>
-					{{#if isRoute 'admin.courses.list'}}
+					{{#if isAdmin}}
 						<div class="extra content">
 							<div class="ui two buttons">
 								<a 
@@ -30,24 +30,26 @@
 							</div>
 						</div>
 					{{/if}}
+
+					{{#if isStudent}}
+							
+
+						<div class="extra content">
+							{{#if isChosenCourse}}
+								<button class="fluid ui red button unselect">
+									<i class="icon remove circle"></i>
+									Disenroll
+								</button>
+							{{else}}
+								<button class="fluid ui basic green button select">
+									<i class="icon check circle"></i>
+									Enroll
+								</button>
+							{{/if}}
+						</div>
+					{{/if}}
 				</div>
 			</div>
 		{{/each}}
 	</div>
-</template>
-
-<template name="adminCoursesList">
-	<div class="ui grid">
-		<div class="eight wide column">
-			<h1>Existing Courses: </h1>
-		</div>
-		<div class="eight wide right aligned column">
-			<a 
-				href="{{pathFor route='admin.courses.create'}}"
-				class="ui green button right">
-				Create Course
-			</a>
-		</div>
-	</div>
-	{{> coursesList}}
 </template>
