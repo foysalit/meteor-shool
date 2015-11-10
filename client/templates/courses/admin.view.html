@@ -1,0 +1,17 @@
+<template name="adminCoursesView">
+	<div class="ui grid">
+		<div class="ui doubling two column row">
+			{{#with course}}
+			<div class="ui six wide column">
+				{{> coursesView}}
+			</div>
+			
+			<div class="one wide column"></div>
+
+			<div class="ui nine wide column">
+				{{> lecturesList lectures=lectures}}
+			</div>
+			{{/with}}
+		</div>
+	</div>
+</template>

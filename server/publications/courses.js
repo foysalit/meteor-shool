@@ -18,6 +18,18 @@ var courseChildren = [{
 	find: function (course) {
 		return App.Klasses.collection.find({_id: course.klassId})
 	}
+}, {
+	find: function (course) {
+		return App.Users.collection.find({
+			_id: course.teacherId
+		}, {
+			fields: {profile: 1, username: 1}
+		});
+	}
+}, {
+	find: function (course) {
+		return App.Lectures.findByCourse(course._id);
+	}
 }];
 
 Meteor.publishComposite("courses.list", function (config) {

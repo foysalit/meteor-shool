@@ -28,9 +28,27 @@ App.Users.getUserId = function (userId) {
 };
 
 App.Users.addToRole = function (userId, name) {
+	if (Meteor.isClient && !this.isAdmin(Meteor.userId())) {
+		return Bert.alert({
+			title: 'You are not authorized!', 
+			type: 'danger', 
+			style: 'fixed-top', 
+			icon: 'icon frown'
+		});
+	}
+
 	var name = name || 'student',
-		role = App.Users.ROLES[name];
-	Roles.addUsersToRoles(this.getUserId(userId), role.permissions, role.group);
+		userId = this.getUserId(userId),
+		currentRole = this.getRole(userId),
+		role = this.ROLES[name];
+
+	if (currentRole) {
+		var updateQuery = {$unset: {}};
+		updateQuery.$unset["roles."+ currentRole] = 1;
+		App.Users.collection.update(userId, updateQuery);
+	}
+
+	Roles.addUsersToRoles(userId, role.permissions, role.group);
 };
 
 App.Users.hasRole = function (userId, name) {
@@ -41,7 +59,13 @@ App.Users.hasRole = function (userId, name) {
 };
 
 App.Users.getRole = function (userId) {
-	return _.first(Roles.getGroupsForUser(this.getUserId(userId)));	
+	var roles = Roles.getGroupsForUser(this.getUserId(userId));
+	return _.isArray(roles) ? _.first(roles) : null;	
+};
+
+App.Users.allInRole = function (role) {
+	var role = App.Users.ROLES[role];
+	return Roles.getUsersInRole(role.permissions, role.group);
 };
 
 App.Users.enrollInCourse = function (courseId, userId) {

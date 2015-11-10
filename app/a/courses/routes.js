@@ -18,8 +18,13 @@ Router.route('/student/courses/choices', {
 	controller: App.Courses.Controller
 });
 
-Router.route('/admin/courses/:_id', {
+Router.route('/student/courses/:_id', {
 	name: 'student.courses.view',
+	controller: App.Courses.Controller
+});
+
+Router.route('/admin/courses/:_id', {
+	name: 'admin.courses.view',
 	controller: App.Courses.Controller
 });
 

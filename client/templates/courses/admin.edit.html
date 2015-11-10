@@ -9,6 +9,11 @@
 				class="ui green button right">
 				Create Class
 			</a>
+			<a 
+				href="{{pathFor route='admin.lectures.create'}}"
+				class="ui green button right">
+				Add Lecture
+			</a>
 		</div>
 	</div>
 	{{> quickForm id="editCourses" type="update" collection="App.Courses.collection" doc=course }}

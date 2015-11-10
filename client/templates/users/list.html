@@ -6,4 +6,22 @@
 	<button class="ui red icon button">
 		<i class="tiny trash icon"></i>
 	</button>
+
+	{{#unless isTeacher _id}}
+	<button class="ui teal icon button make-teacher" title="Make Teacher">
+		<i class="tiny doctor icon"></i>
+	</button>
+	{{/unless}}
+
+	{{#unless isStudent _id}}
+	<button class="ui green icon button make-student" title="Make Student">
+		<i class="tiny student icon"></i>
+	</button>
+	{{/unless}}
+
+	{{#unless isAdmin _id}}
+	<button class="ui purple icon button make-admin" title="Make Admin">
+		<i class="tiny spy icon"></i>
+	</button>
+	{{/unless}}
 </template>

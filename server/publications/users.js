@@ -37,3 +37,10 @@ Meteor.publishComposite("tabularUsersList", function (tableName, ids, fields) {
 		}]
 	};
 });
+
+Meteor.publish("users.teachers", function () {
+	if (!App.Users.isAdmin(this.userId))
+		return [];
+
+	return App.Users.allInRole('teacher');
+});

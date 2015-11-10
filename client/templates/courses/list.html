@@ -9,7 +9,13 @@
 					<div class="content">
 						<div class="header">{{ name }}</div>
 						<div class="meta">
-							<a>{{ section }}</a>
+							<a class="ui teal label">
+								<i class="doctor icon"></i>
+								{{ teacher.profile.name }}
+							</a>
+							<a class="ui {{ sectionClass section }} label">
+								{{ section }}
+							</a>
 						</div>
 						<div class="description">
 							<div class="ui image label">
@@ -20,11 +26,17 @@
 					</div>
 					{{#if isAdmin}}
 					<div class="extra content">
-						<div class="ui two buttons">
+						<div class="ui three buttons">
 							<a 
 								class="ui basic green button"
 								href="{{ pathFor route='admin.courses.edit' data=this }}">
-								Edit</a>
+								Edit
+							</a>
+							<a 
+								class="ui basic blue button"
+								href="{{ pathFor route='admin.courses.view' data=this }}">
+								View
+							</a>
 							<button class="ui basic red button remove">
 							Remove</button>
 						</div>
@@ -48,10 +60,6 @@
 						{{/if}}
 
 						{{#if isRoute 'student.courses.list'}}
-						<!-- <a 
-							href="{{pathFor 'student.courses.view' data=this}}" 
-							class="fluid ui inverted teal button">
-						</a> -->
 						<a 
 							href="{{pathFor 'student.courses.view' data=this}}" 
 							class="fluid ui animated teal button">

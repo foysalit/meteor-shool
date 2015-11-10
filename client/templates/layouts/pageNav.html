@@ -56,6 +56,11 @@
 		class="item {{ isActiveRoute regex='admin.members.list' }}">
 		Members
 	</a>
+	<a 
+		href="{{pathFor route='admin.users.list'}}" 
+		class="item {{ isActiveRoute regex='admin.users.list' }}">
+		Users
+	</a>
 </template>
 
 <template name="studentMenu">
@@ -68,13 +73,8 @@
 
 <template name="teacherMenu">
 	<a 
-		href="{{pathFor route='admin.courses.list'}}" 
-		class="item {{ isActiveRoute regex='admin.courses.list' }}">
+		href="{{pathFor route='teacher.courses.list'}}" 
+		class="item {{ isActiveRoute regex='teacher.courses.list' }}">
 		Courses
-	</a>
-	<a 
-		href="{{pathFor route='admin.members.list'}}" 
-		class="item {{ isActiveRoute regex='admin.members.list' }}">
-		Members
 	</a>
 </template>

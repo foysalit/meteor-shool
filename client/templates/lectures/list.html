@@ -1,0 +1,49 @@
+<template name="lecturesList">
+	<div class="ui grid section lectures">
+		<div class="doubling three column row">
+			{{#each some lectures}}
+				<div class="column">
+					<div class="ui fluid card">
+						<div class="content">
+							<div class="header">{{ name }}</div>
+							<div class="meta">12 Min 30 Sec</div>
+						</div>
+						<div class="image">
+							<img src="{{ photo }}">
+						</div>
+						<div class="content">
+							<span class="right floated">
+								<i class="heart outline like icon"></i>
+								17
+							</span>
+							<i class="comment icon"></i>
+							3
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+
+	<div class="ui divided items">
+		{{#each rest lectures}}
+			<div class="item">
+				<div class="ui tiny image">
+					<img src="{{ photo }}">
+				</div>
+				<div class="middle aligned content">
+					<a class="header">{{ name }}</a>
+					<div class="meta">
+						<span class="cinema">12 Min 30 Sec</span>
+					</div>
+					<div class="extra">
+						<div class="ui right floated primary button">
+							Watch Video
+							<i class="right chevron icon"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	</div>
+</template>

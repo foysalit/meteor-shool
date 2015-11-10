@@ -8,6 +8,9 @@ App = {
 	Klasses: {
 		collection: new Mongo.Collection('klasses')
 	},
+	Lectures: {
+		collection: new Mongo.Collection('lectures')
+	},
 	Users: {
 		collection: Meteor.users
 	}

@@ -1,13 +1,13 @@
-Template.registerHelper('isAdmin', function() {
-	return App.Users.isAdmin(Meteor.userId());
+Template.registerHelper('isAdmin', function(userId) {
+	return App.Users.isAdmin(App.Users.getUserId(userId));
 });
 
-Template.registerHelper('isTeacher', function() {
-	return App.Users.isTeacher(Meteor.userId());
+Template.registerHelper('isTeacher', function(userId) {
+	return App.Users.isTeacher(App.Users.getUserId(userId));
 });
 
-Template.registerHelper('isStudent', function() {
-	return App.Users.isStudent(Meteor.userId());
+Template.registerHelper('isStudent', function(userId) {
+	return App.Users.isStudent(App.Users.getUserId(userId));
 });
 
 Template.registerHelper('hasSelected', function(user, query) {

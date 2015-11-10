@@ -55,6 +55,19 @@ App.Courses.Schema = new SimpleSchema({
 			}
 		}
 	},
+	teacherId: {
+		type: String,
+		label: "Teacher",
+		autoform: {
+			type: "select",
+			options: function () {
+				var teachers = App.Users.allInRole('teacher').fetch();
+				return _.map(teachers, function (teacher) {
+					return {label: teacher.username, value: teacher._id};
+				});
+			}
+		}
+	},
 	photo: {
 		type: String,
 		defaultValue: 'https://placeimg.com/350/350/people',
