@@ -19,8 +19,8 @@ function movePageNav (inside) {
 }
 
 Template.home.rendered = function() {
-	reseizeHomePanel();
-	$(window).resize(reseizeHomePanel);
+	// reseizeHomePanel();
+	// $(window).resize(reseizeHomePanel);
 
 	// movePageNav(true);
 };

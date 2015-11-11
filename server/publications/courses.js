@@ -30,6 +30,10 @@ var courseChildren = [{
 	find: function (course) {
 		return App.Lectures.findByCourse(course._id);
 	}
+}, {
+	find: function (course) {
+		return App.Users.findByCourse(course._id);
+	}
 }];
 
 Meteor.publishComposite("courses.list", function (config) {

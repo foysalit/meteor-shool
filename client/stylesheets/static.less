@@ -34,12 +34,18 @@
 		}
 	}
 }
+
+.page-nav {
+	background: @header_color;
+}
+
 .static {
-	.masthead.segment {
-		min-height: 700px;
+	.ui.inverted.masthead.segment {
+		height: 100vh;
 		padding: 1em 0em;
-		background-image: url('images/panel.jpg');
-		background-size: cover;
+		// background-image: url('images/panel.jpg');
+		background: @header_color;
+		// background-size: cover;
 
 		.logo.item img {
 			margin-right: 1em;
@@ -104,4 +110,9 @@
 .ui.image.label {
 	margin-bottom: 0.5em;
 	margin-top: 0.5em;
+}
+
+.page-content.app {
+	padding-top: 30px;
+	padding-bottom: 30px;
 }

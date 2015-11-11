@@ -7,5 +7,14 @@ App.Courses.collection.helpers({
 	},
 	lectures: function () {
 		return App.Lectures.getByCourse(this._id);
+	},
+	students: function () {
+		return App.Users.getByCourse(this._id);
+	},
+	lecturesCount: function () {
+		return _.size(App.Lectures.getByCourse(this._id));
+	},
+	studentsCount: function () {
+		return _.size(App.Users.getByCourse(this._id));
 	}
 });

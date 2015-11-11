@@ -1,17 +1,16 @@
 <template name="appLayout">
-  <!--[if lt IE 9]>
-    <p class="browser-warning"><strong><i class="icon-exclamation-sign"></i> Warning</strong> - You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to properly view this website.</p>
-  <![endif]-->
+	<!--[if lt IE 9]>
+	<p class="browser-warning"><strong><i class="icon-exclamation-sign"></i> Warning</strong> - You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to properly view this website.</p>
+	<![endif]-->
 
-  {{> _header}}
+	{{> _header}}
 
-  <div class="pusher">
-		<div class="ui container page-content">
-			{{> pageNav}}
-		
-    		{{> yield}}
-    	</div>
+	<div class="pusher">
+		{{> pageNav}}
+		<div class="ui container page-content app">
+			{{> yield}}
+		</div>
 	</div>
 
-  {{> _footer}}
+	{{> _footer}}
 </template>

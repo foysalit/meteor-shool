@@ -45,6 +45,7 @@ App.Courses.Schema = new SimpleSchema({
 	},
 	klassId: {
 		type: String,
+		optional: true,
 		autoform: {
 			type: "select",
 			options: function () {

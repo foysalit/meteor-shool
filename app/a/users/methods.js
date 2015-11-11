@@ -101,3 +101,15 @@ App.Users.disenrollFromCourse = function (courseId, userId) {
 		}
 	});
 };
+
+App.Users.findByCourse = function (courseId) {
+	return this.collection.find({
+		"profile.courses": courseId
+	}, {
+		fields: {profile: 1, username: 1}
+	});	
+};
+
+App.Users.getByCourse = function (courseId) {
+	return this.findByCourse(courseId).fetch();	
+};
