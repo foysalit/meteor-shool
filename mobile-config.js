@@ -1,3 +1,8 @@
+App.info({
+version: '0.1.0',
+buildNumber: '1' // has to be a number
+})
+
 App.icons({
 	// iOS
 	'iphone': 'resources/icons/Icon-60.png',
