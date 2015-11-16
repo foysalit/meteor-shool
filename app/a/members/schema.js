@@ -1,11 +1,35 @@
 App.Members.roles = [{
 	name: 'founder',
 	value: 'founder',
-	label: 'Founder'
+	label: 'Founder and director'
+}, {
+	name: 'teachers',
+	value: 'teachers',
+	label: 'Teachers and Course Coordinator'
+}, {
+	name: 'advisers',
+	value: 'advisers',
+	label: 'Advisers Panel'
 }, {
 	name: 'tech',
 	value: 'tech',
-	label: 'Tech Team'
+	label: 'Technical design and Development'
+}, {
+	name: 'research',
+	value: 'research',
+	label: 'Research & Developments '
+}, {
+	name: 'finance',
+	value: 'finance',
+	label: 'Finance and Accounting'
+}, {
+	name: 'public',
+	value: 'public',
+	label: 'Public Administration'
+}, {
+	name: 'branding',
+	value: 'branding',
+	label: 'Branding and Social Networking'
 }];
 
 App.Members.Schema = new SimpleSchema({

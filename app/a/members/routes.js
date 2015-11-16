@@ -10,6 +10,5 @@ Router.route('/admin/members/:_id/edit', {
 
 Router.route('/admin/members', {
 	name: 'admin.members.list',
-	template: 'membersList',
 	controller: App.Members.Controller
 });

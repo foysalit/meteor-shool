@@ -1,6 +1,28 @@
-AccountsTemplates.configureRoute('signIn', {layoutTemplate: 'staticLayout'});
-AccountsTemplates.configureRoute('signUp', {layoutTemplate: 'staticLayout'});
-AccountsTemplates.configureRoute('ensureSignedIn', {layoutTemplate: 'staticLayout'});
+function signinRedirection () {
+	var userId = Meteor.userId();
+
+	if (App.Users.isAdmin(userId)) {
+		return Router.go('admin.users.list');
+	} else if(App.Users.isStudent(userId)) {
+		return Router.go('student.courses.list');
+	} else if (App.Users.isTeacher(userId)) {
+		return Router.go('home');
+	}
+
+	return Router.go('home');
+}
+
+AccountsTemplates.configureRoute('signIn', {
+	layoutTemplate: 'staticLayout',
+	redirect: signinRedirection
+});
+AccountsTemplates.configureRoute('signUp', {
+	layoutTemplate: 'staticLayout',
+	redirect: signinRedirection
+});
+AccountsTemplates.configureRoute('ensureSignedIn', {
+	layoutTemplate: 'staticLayout'
+});
 
 AccountsTemplates.addField({
     _id: 'username',

@@ -1,0 +1,16 @@
+<template name="adminMembersList">
+	<div class="ui grid">
+		<div class="eight wide column">
+			<h1>Existing Members: </h1>
+		</div>
+		<div class="eight wide right aligned column">
+			<a 
+				href="{{pathFor route='admin.members.create'}}"
+				class="ui green button right">
+				Add Member
+			</a>
+		</div>
+	</div>
+
+	{{> membersList }}
+</template>

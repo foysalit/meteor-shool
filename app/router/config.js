@@ -26,10 +26,10 @@ Router.plugin('dataNotFound', {dataNotFoundTemplate: 'notFound'});
 function checkPermission () {
 	var routeName = Router.current().route.getName();
 
-	if (routeName == 'unauthorized')
-		this.next();
-
 	console.log('checkPermission: ', routeName);
+
+	if (_.contains(['unauthorized', 'atSignIn', 'atSignUp']), routeName)
+		return this.next();
 
 	if (Meteor.loggingIn()) {
 		console.log('[authenticate filter] loading');
