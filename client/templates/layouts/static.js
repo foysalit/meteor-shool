@@ -10,7 +10,7 @@ function initSidebar () {
 	});
 
 	// create sidebar and attach to menu open
-	$('.ui.sidebar').sidebar('attach events', '.toc.item');
+	$('.ui.sidebar').sidebar('attach events', '.toc.item, .sidebar.menu .item');
 }
 
 function addStaticClass () {

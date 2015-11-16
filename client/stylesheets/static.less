@@ -15,11 +15,16 @@
 	padding: 5em 0em;
 }
 
-.ui.secondary.menu .toc.item {
-	display: none;
+.ui.secondary.menu {
+	.toc.item {
+		display: none;
+	}
+	.right.item .button {
+		margin-left: 0.5em;
+	}
 }
 
-@media only screen and (max-width: 700px) {
+@media @mobile {
 	.ui {
 		&.fixed.menu {
 			display: none;
@@ -41,7 +46,7 @@
 
 .static {
 	.ui.inverted.masthead.segment {
-		height: 100vh;
+		height: 93vh;
 		padding: 1em 0em;
 		// background-image: url('images/panel.jpg');
 		background: @header_color;
@@ -57,11 +62,20 @@
 			margin-top: 3em;
 			margin-bottom: 0em;
 			font-size: 4em;
-			font-weight: normal;
+			font-weight: bold;
+
+			@media @mobile {
+				font-size: 2em;
+				margin-top: 2.5em;
+			}
 		}
 		h2 {
 			font-size: 1.7em;
 			font-weight: normal;
+
+			@media @mobile {
+				font-size: 1.3em;
+			}
 		}
 
 		.down-scroller {
@@ -73,20 +87,6 @@
 			.icon {
 				cursor: pointer;
 			}
-		}
-	}
-
-	@media only screen and (max-width: 700px) {
-		.masthead.segment {
-			min-height: 350px;
-		}
-		.masthead h1.ui.header {
-			font-size: 2em;
-			margin-top: 1.5em;
-		}
-		.masthead h2 {
-			margin-top: 0.5em;
-			font-size: 1.5em;
 		}
 	}
 }
@@ -112,7 +112,8 @@
 	margin-top: 0.5em;
 }
 
-.page-content.app {
+.page-content.app,
+.at-grid.ui.middle.aligned.centered.grid {
 	padding-top: 30px;
 	padding-bottom: 30px;
 }

@@ -13,11 +13,11 @@ Router.configure({
 });
 
 Router.plugin('ensureSignedIn', {
-	except: ['home', 'signUp', 'signIn', 'unauthorized']
+	except: ['home', 'atSignUp', 'atSignIn', 'unauthorized']
 });
 
 Router.onBeforeAction(checkPermission, {
-	except: ['home', 'signUp', 'signIn', 'unauthorized']
+	except: ['home', 'atSignUp', 'atSignIn', 'unauthorized']
 });
 
 // Router.plugin('loading', {loadingTemplate: 'loading'});
@@ -26,7 +26,7 @@ Router.plugin('dataNotFound', {dataNotFoundTemplate: 'notFound'});
 function checkPermission () {
 	var routeName = Router.current().route.getName();
 
-	console.log('checkPermission: ', routeName);
+	// console.log('checkPermission: ', routeName);
 
 	if (_.contains(['unauthorized', 'atSignIn', 'atSignUp']), routeName)
 		return this.next();

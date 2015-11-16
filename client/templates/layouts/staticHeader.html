@@ -1,7 +1,10 @@
 <template name="staticHeader">
 	<div class="ui large top fixed hidden menu">
 		<div class="ui container">
-			<a class="{{ isActiveRoute regex='home' }} item">Home</a>
+			<a 
+				class="{{ isActiveRoute regex='home' }} item"
+				href="{{pathFor route='home'}}">
+			Home</a>
 
 			{{#if currentUser}}
 			
@@ -38,7 +41,11 @@
 
 	<!-- Sidebar Menu -->
 	<div class="ui vertical inverted right sidebar menu">
-		<a class="{{ isActiveRoute regex='home' }} item">Home</a>
+		<a 
+			class="{{ isActiveRoute regex='home' }} item"
+			href="{{ pathFor route='home' }}">
+			Home
+		</a>
 			
 		
 		{{#if currentUser}}
