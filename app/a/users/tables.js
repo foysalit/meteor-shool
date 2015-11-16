@@ -10,7 +10,7 @@ App.Users.ListTable = new Tabular.Table({
 	dom: Tables.dom,
 	drawCallback: Tables.paginationStyles.bind(Tables),
 	initComplete: Tables.filtersStyle.bind(Tables),
-	extraFields: ['roles', 'profile'],
+	extraFields: ['roles', 'profile', 'services'],
 	columns: [
 		{data: "username", title: "Username"},
 		{data: "role()", title: "Role"},
@@ -34,10 +34,12 @@ App.Users.ListTable = new Tabular.Table({
 			data: "emails",
 			title: "Email Addresses",
 			render: function (emails, type, doc) {
-				if (emails.length > 0) {
+				if (emails && emails.length > 0) {
 					return _.map(emails, function (email) {
 						return email.address
 					}).join(', ');
+				} else if (doc.services && doc.services.facebook) {
+					return doc.services.facebook.email;
 				} else {
 					return 'None';
 				}
