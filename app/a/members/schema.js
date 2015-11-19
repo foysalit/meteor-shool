@@ -54,6 +54,16 @@ App.Members.Schema = new SimpleSchema({
 		type: String,
 		optional: true
 	},
+	linkedin: {
+		type: String,
+		label: "Linkedin profile:",
+		optional: true
+	},
+	facebook: {
+		type: String,
+		label: "Facebook profile:",
+		optional: true
+	},
 	photo: {
 		type: String,
 		defaultValue: 'https://placeimg.com/350/350/people',

@@ -17,7 +17,20 @@
 								<a>{{ profession }}</a>
 							</div>
 							<div class="description">
-								{{ bio }}
+								<p>
+									{{ bio }}
+								</p>
+
+								{{#if linkedin}}
+								<a href="{{ linkedin }}" class="ui icon teal button">
+									<i class="icon linkedin"></i>
+								</a>
+								{{/if}}
+								{{#if facebook}}
+								<a href="{{ facebook }}" class="ui icon blue button">
+									<i class="icon facebook"></i>
+								</a>
+								{{/if}}
 							</div>
 						</div>
 						{{#if isRoute 'admin.members.list'}}
