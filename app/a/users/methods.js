@@ -69,7 +69,7 @@ App.Users.allInRole = function (role) {
 };
 
 App.Users.enrollInCourse = function (courseId, userId) {
-	var user = App.Users.collection.findOne(this.getUserId(userId));
+	var user = this.collection.findOne(this.getUserId(userId));
 
 	if (user.profile.courses.length > 3) {
 		if (Meteor.isClient) {
@@ -83,7 +83,7 @@ App.Users.enrollInCourse = function (courseId, userId) {
 		return false;
 	}
 
-	App.Users.collection.update({
+	this.collection.update({
 		_id: user._id
 	}, {
 		$addToSet: {
@@ -93,13 +93,18 @@ App.Users.enrollInCourse = function (courseId, userId) {
 };
 
 App.Users.disenrollFromCourse = function (courseId, userId) {
-	App.Users.collection.update({
+	this.collection.update({
 		_id: this.getUserId(userId)
 	}, {
 		$pull: {
 			'profile.courses': courseId
 		}
 	});
+};
+
+App.Users.enrolledCourses = function (userId) {
+	var user = this.collection.findOne(this.getUserId(userId));
+	return App.Courses.collection.find({_id: {$in: user.profile.courses}});
 };
 
 App.Users.findByCourse = function (courseId) {

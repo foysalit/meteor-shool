@@ -4,7 +4,10 @@ function signinRedirection () {
 	if (App.Users.isAdmin(userId)) {
 		return Router.go('admin.users.list');
 	} else if(App.Users.isStudent(userId)) {
-		return Router.go('student.courses.list');
+		if (Meteor.user().profile.courses.length <= 0)
+			return Router.go('student.courses.choices');
+		else
+			return Router.go('student.courses.list');
 	} else if (App.Users.isTeacher(userId)) {
 		return Router.go('home');
 	}

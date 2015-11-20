@@ -1,6 +1,6 @@
 Template.coursesList.helpers({
-	isChosenCourse: function () {
-		return _.contains(Meteor.user().profile.courses, this._id);
+	inSection: function (section) {
+		return _.where(this.courses, {section: section});
 	}
 });
 
@@ -10,5 +10,11 @@ Template.coursesList.events({
 	},
 	'click .unselect': function () {
 		return App.Users.disenrollFromCourse(this._id, Meteor.userId());
+	}
+});
+
+Template.courseListItem.helpers({
+	isChosenCourse: function () {
+		return _.contains(Meteor.user().profile.courses, this._id);
 	}
 });

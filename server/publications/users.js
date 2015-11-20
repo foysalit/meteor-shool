@@ -9,15 +9,13 @@ Meteor.publishComposite("tabularUsersList", function (tableName, ids, fields) {
 	check(ids, Array);
 	check(fields, Match.Optional(Object));
 
-	this.unblock(); // requires meteorhacks:unblock package
+	this.unblock(); 
 	var userId = this.userId;
-	// console.log(tableName, ids, fields);
 
 	return {
 		find: function () {
-			this.unblock(); // requires meteorhacks:unblock package
+			this.unblock(); 
 
-			// check for admin role with alanning:roles package
 			if (!App.Users.isAdmin(userId)) {
 				return [];
 			}
@@ -32,7 +30,7 @@ Meteor.publishComposite("tabularUsersList", function (tableName, ids, fields) {
 		},
 		children: [{
 			find: function (user) {
-				return App.Courses.collection.find({_id: {$in: user.profile.courses}})
+				return App.Users.enrolledCourses(user._id);
 			}
 		}]
 	};
