@@ -89,5 +89,14 @@ if (Meteor.isServer) {
 			}
 		});
 
+		ServiceConfiguration.configurations.upsert({ 
+			service: "google"
+		}, {
+			$set: {
+			    clientId: settings.google.api_key,
+			    secret: settings.google.api_secret
+			}
+		});
+
 	});
 }

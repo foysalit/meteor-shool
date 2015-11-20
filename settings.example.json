@@ -1,25 +1,29 @@
 {
   "production" : {
     "twitter" : {
-      "oauth_key" : "<oauth_key>",
-      "oauth_secret" : "<oauth_secret>",
+      "api_secret" : "<api_secret>",
       "api_key" : "<api_key>"
     },
     "facebook" : {
-      "oauth_key" : "<oauth_key>",
-      "oauth_secret" : "<oauth_secret>",
+      "api_secret" : "<api_secret>",
+      "api_key" : "<api_key>"
+    },
+    "google" : {
+      "api_secret" : "<api_secret>",
       "api_key" : "<api_key>"
     }
   },
   "development" : {
     "twitter" : {
-      "oauth_key" : "<oauth_key>",
-      "oauth_secret" : "<oauth_secret>",
+      "api_secret" : "<api_secret>",
       "api_key" : "<api_key>"
     },
     "facebook" : {
-      "oauth_key" : "<oauth_key>",
-      "oauth_secret" : "<oauth_secret>",
+      "api_secret" : "<api_secret>",
+      "api_key" : "<api_key>"
+    },
+    "google" : {
+      "api_secret" : "<api_secret>",
       "api_key" : "<api_key>"
     }
   },

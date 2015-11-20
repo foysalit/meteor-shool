@@ -1,4 +1,8 @@
 App.Members.roles = [{
+	name: 'advisers',
+	value: 'advisers',
+	label: 'Advisers Panel'
+}, {
 	name: 'founder',
 	value: 'founder',
 	label: 'Founder and director'
@@ -6,10 +10,6 @@ App.Members.roles = [{
 	name: 'teachers',
 	value: 'teachers',
 	label: 'Teachers and Course Coordinator'
-}, {
-	name: 'advisers',
-	value: 'advisers',
-	label: 'Advisers Panel'
 }, {
 	name: 'tech',
 	value: 'tech',
