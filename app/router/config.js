@@ -9,15 +9,15 @@ Router.configure({
 
 Router.configure({
 	controller: 'StaticController',
-	only: ['home']
+	only: ['home', 'members.static']
 });
 
 Router.plugin('ensureSignedIn', {
-	except: ['home', 'atSignUp', 'atSignIn', 'unauthorized']
+	except: ['home', 'atSignUp', 'atSignIn', 'unauthorized', 'members.static']
 });
 
 Router.onBeforeAction(checkPermission, {
-	except: ['home', 'atSignUp', 'atSignIn', 'unauthorized']
+	except: ['home', 'atSignUp', 'atSignIn', 'unauthorized', 'members.static']
 });
 
 // Router.plugin('loading', {loadingTemplate: 'loading'});
