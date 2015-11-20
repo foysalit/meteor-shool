@@ -96,6 +96,20 @@
 				</div>
 			</a>
 			{{/if}}
+
+			{{#if isRoute 'home'}}
+			<a 
+				href="{{pathFor 'atSignIn'}}" 
+				class="fluid ui animated teal button">
+				<div class="visible content">
+					<i class="icon browser"></i>
+					View Content
+				</div>
+				<div class="hidden content">
+					<i class="right arrow icon"></i>
+				</div>
+			</a>
+			{{/if}}
 		</div>
 		{{/if}}
 	</div>

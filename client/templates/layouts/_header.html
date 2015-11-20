@@ -3,6 +3,12 @@
 		<div class="ui container">
 			<a class="{{ isActiveRoute regex='home' }} item">Home</a>
 
+			<a 
+				href="{{pathFor route='members.static'}}" 
+				class="item {{ isActiveRoute regex='members.static' }}">
+				Board of Members
+			</a>
+
 			{{#if currentUser}}
 			
 			{{#if isAdmin}}
@@ -39,6 +45,12 @@
 	<!-- Sidebar Menu -->
 	<div class="ui vertical inverted right sidebar menu">
 		<a class="{{ isActiveRoute regex='home' }} item">Home</a>
+
+		<a 
+			href="{{pathFor route='members.static'}}" 
+			class="item {{ isActiveRoute regex='members.static' }}">
+			Board of Members
+		</a>
 			
 		
 		{{#if currentUser}}

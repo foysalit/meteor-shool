@@ -5,6 +5,12 @@
 			<a class="logo" href="/">
 				<img src="/images/logo.png" alt="official logo">
 			</a>
+
+			<a 
+				href="{{pathFor route='members.static'}}" 
+				class="item {{ isActiveRoute regex='members.static' }}">
+				Board of Members
+			</a>
 			
 			{{#if isAdmin}}
 				{{> adminMenu}}

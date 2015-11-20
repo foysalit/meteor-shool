@@ -1,5 +1,6 @@
 App.Members.findByRole = function (role) {
-	return App.Members.collection.find({role: role});
+	var members = App.Members.collection.find({role: role});
+	return members.count() > 0 ? members : null;
 };
 
 App.Members.get = function (id) {

@@ -1,7 +1,8 @@
-Meteor.publishComposite("members.list", function() {
+Meteor.publishComposite("members.list", function(query) {
+	query = query || {};
 	return {
 		find: function() {
-			return App.Members.collection.find({});
+			return App.Members.collection.find(query);
 		}
 	}
 });

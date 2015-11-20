@@ -56,6 +56,15 @@ Meteor.publishComposite("courses.list", function (config) {
 	}
 });
 
+Meteor.publishComposite("courses.random", function (config) {
+	return {
+		find: function() {
+			return App.Courses.collection.find({}, {limit: 8});
+		},
+		children: courseChildren
+	}
+});
+
 Meteor.publishComposite("courses.single", function(config) {
 	var userId = this.userId,
 		query = {_id: config._id};

@@ -1,6 +1,7 @@
 <template name="membersList">
 	<div class="ui centered stackable grid section board-members">
 	{{#each roles}}
+	{{#if findByRole value}}
 		<div class="twelve column centered row">
 			<h1 class="ui header">
 				{{ label }}
@@ -49,6 +50,7 @@
 				</div>
 			{{/each}}
 		</div>
+	{{/if}}
 	{{/each}}	
 	</div>
 </template>

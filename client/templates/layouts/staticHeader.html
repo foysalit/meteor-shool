@@ -6,6 +6,18 @@
 				href="{{pathFor route='home'}}">
 			Home</a>
 
+			<a 
+				href="{{pathFor route='members.static'}}" 
+				class="item {{ isActiveRoute regex='members.static' }}">
+				Board of Members
+			</a>
+
+		<a 
+			href="{{pathFor route='members.static'}}" 
+			class="item {{ isActiveRoute regex='members.static' }}">
+			Board of Members
+		</a>
+
 			{{#if currentUser}}
 			
 			{{#if isAdmin}}
@@ -45,6 +57,12 @@
 			class="{{ isActiveRoute regex='home' }} item"
 			href="{{ pathFor route='home' }}">
 			Home
+		</a>
+
+		<a 
+			href="{{pathFor route='members.static'}}" 
+			class="item {{ isActiveRoute regex='members.static' }}">
+			Board of Members
 		</a>
 			
 		
